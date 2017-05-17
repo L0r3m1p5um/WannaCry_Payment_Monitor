@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WCry Monitor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet"> 	
+        <style>
+            #page-top {
+                background-color: #c10;
+                color: white;
+            }
+            .page-header {
+                margin-top: 0;
+                font-family: 'Ubuntu Mono', monospace;
+            }
+            #stats {
+                font-size: 130%;
+            }
+        </style>
+    </head>    
+    <body>
+        <div id="page-top" class="page-header">
+            <div class="container">
+                <h1>WannaCry Payment Monitor</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div id="summary">
+                <p class="lead">
+                    {{ monitor.currency_total_received }} worth of Bitcoin has been sent to addresses
+                    associated with WannaCry over the course of {{ monitor.tx_count }} transactions.
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="page-header">
+                    <h2>Statistics</h2>
+                </div>
+                <table id="stats" class="table">
+                    <tr>
+                        <td>Transactions Made: </td>
+                        <td>{{ monitor.tx_count }}</td>
+                    </tr>
+                    <tr>
+                        <td>Payments Received (BTC): </td>
+                        <td>{{ monitor.btc_total_received }}</td>
+                    </tr>
+                    <tr>
+                        <td>Current Value of Payments: </td>
+                        <td>{{ monitor.currency_total_received }}</td>
+                    </tr>
+                    <tr>
+                        <td>Average Payment Value</td>
+                        <td>{{ monitor.currency_average_payment }}</td>
+                    </tr>                    <tr>
+                        <td>Payments Sent (BTC): </td>
+                        <td>{{ monitor.btc_total_sent }}</td>
+                    </tr>
+                    <tr>
+                        <td>Value of Payments Sent: </td>
+                        <td>{{ monitor.currency_total_sent }}</td>
+                    </tr>
+                    <tr>
+                        <td>Time of Last Transaction: </td>
+                        <td>{{ monitor.last_tx.strftime('%H:%M:%S on %m/%y/%d') }}</td>
+                    </tr>
+                </table>
+            </div>
+            <p>Updated at {{ monitor.last_updated.strftime('%H:%M:%S on %m/%y/%d') }}</p>
+        </div>
+    </body>
+</html>
