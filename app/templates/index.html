@@ -64,11 +64,11 @@
                     </tr>
                     <tr>
                         <td>Time of Last Transaction: </td>
-                        <td>{{ monitor.last_tx.strftime('%H:%M:%S on %m/%y/%d') }}</td>
+                        <td>{{ monitor.last_tx.strftime('%H:%M:%S on %m/%d/%y') }}</td>
                     </tr>
                 </table>
             </div>
-            <p>Updated at {{ monitor.last_updated.strftime('%H:%M:%S on %m/%y/%d') }}</p>
+            <p>Updated at {{ monitor.last_updated.strftime('%H:%M:%S on %m/%d/%y') }}</p>
         </div>
     </body>
 </html>
